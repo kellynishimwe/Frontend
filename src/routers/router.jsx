@@ -39,44 +39,34 @@ const fetchBookData = async ({ params }) => {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App />, // Main layout with Navbar and Footer
     children: [
       { path: "/", element: <Home /> },
       { path: "/shop", element: <Shop /> },
       { path: "/singlebook", element: <SingleBook /> },
-      { path: "/about", element: <About/> },
-      { path: "/blog", element: <Blog/> },
-
-
+      { path: "/about", element: <About /> },
+      { path: "/blog", element: <Blog /> },
     ],
   },
+
+  // Dashboard Layout that includes the sidebar
   {
-    path: "/admin/dashboard",
-    element: <PrivateRoute><Dashboard /></PrivateRoute>,
+    path: "/admin",
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>, // Wrap in DashboardLayout
+    children: [
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "upload", element: <UploadBook /> },
+      { path: "manage", element: <ManageBooks /> },
+      { path: "edit-books/:id", element: <EditBooks />, loader: fetchBookData },
+    ],
   },
-  {
-    path: "/admin/upload",
-    element: <PrivateRoute><UploadBook /></PrivateRoute>,
-  },
-  {
-    path: "/admin/manage",
-    element: <PrivateRoute><ManageBooks /></PrivateRoute>,
-  },
-  {
-    path: "/admin/sidebar",
-    element: <PrivateRoute><SideBar /></PrivateRoute>,
-  },
-  {
-    path: "/admin/edit-books/:id",
-    element: <PrivateRoute><EditBooks /></PrivateRoute>,
-    loader: fetchBookData,
-  },
-  
+
   { path: "/sign-up", element: <Signup /> },
   { path: "/login", element: <Login /> },
   { path: "/logout", element: <Logout /> },
-  { path: "*", element: <NotFound /> }
 
+  // 404 Not Found Page
+  { path: "*", element: <NotFound /> },
 ]);
 
 export default router;
