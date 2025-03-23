@@ -14,22 +14,22 @@
   }
   
   .banner .swiper-slide:nth-child(1n) {
-    background-image: url('src/assets/barnner-books/book1.png') ;
+    background-image: url('public/assets/barnner-books/book1.png') ;
   }
   
  .banner  .swiper-slide:nth-child(2n) {
-    background-image: url('src/assets/barnner-books/book2.png') ;
+    background-image: url('public/assets/barnner-books/book2.png') ;
   }
   
   .banner .swiper-slide:nth-child(3n) {
-    background-image: url('src/assets/barnner-books/book3.png') ;
+    background-image: url('public/assets/barnner-books/book3.png') ;
   }
   
   .banner .swiper-slide:nth-child(4n) {
-    background-image: url('src/assets/barnner-books/book4.png') ;
+    background-image: url('public/assets/barnner-books/book4.png') ;
   }
   
   .banner .swiper-slide:nth-child(5n) {
-    background-image: url('src/assets/barnner-books/book5.png') ;
+    background-image: url('public/assets/barnner-books/book5.png') ;
   }
   

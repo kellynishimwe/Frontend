@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext"; // Correct path
-import googleLogo from "../assets/google-logo.svg";
+import googleLogo from "/assets/google-logo.svg";
 
 const Signup = () => {
   const { createUser, loginwithGoogle } = useContext(AuthContext); // Correctly accessing context
