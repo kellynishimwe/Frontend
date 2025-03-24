@@ -46,28 +46,27 @@ const router = createBrowserRouter([
       { path: "/singlebook", element: <SingleBook /> },
       { path: "/about", element: <About /> },
       { path: "/blog", element: <Blog /> },
+      { path: "/sign-up", element: <Signup /> }, // ✅ Moved here
+      { path: "/login", element: <Login /> },
+      { path: "/logout", element: <Logout /> },
     ],
   },
 
-  // Dashboard Layout that includes the sidebar
+  // Dashboard Layout with Admin Pages
   {
     path: "/admin",
-    element: <PrivateRoute><DashboardLayout /></PrivateRoute>, // Wrap in DashboardLayout
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>, // Dashboard Layout with Sidebar
     children: [
       { path: "dashboard", element: <Dashboard /> },
       { path: "upload", element: <UploadBook /> },
       { path: "manage", element: <ManageBooks /> },
       { path: "edit-books/:id", element: <EditBooks />, loader: fetchBookData },
-      { path: "/sign-up", element: <Signup /> },
-
     ],
   },
-
-  { path: "/login", element: <Login /> },
-  { path: "/logout", element: <Logout /> },
 
   // 404 Not Found Page
   { path: "*", element: <NotFound /> },
 ]);
+
 
 export default router;
