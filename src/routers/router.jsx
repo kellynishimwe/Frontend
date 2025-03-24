@@ -13,7 +13,6 @@ import Dashboard from "../dashboard/Dashboard";
 import UploadBook from "../dashboard/UploadBook";
 import ManageBooks from "../dashboard/ManageBooks";
 import EditBooks from "../dashboard/EditBooks";
-import SideBar from "../dashboard/SideBar";
 import Login from "../components/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Logout from "../components/Logout";
@@ -35,27 +34,29 @@ const fetchBookData = async ({ params }) => {
   }
 };
 
-
 const router = createBrowserRouter([
+  // ✅ Main layout with Navbar and Footer
   {
     path: "/",
-    element: <App />, // Main layout with Navbar and Footer
+    element: <App />, 
     children: [
       { path: "/", element: <Home /> },
       { path: "/shop", element: <Shop /> },
       { path: "/singlebook", element: <SingleBook /> },
       { path: "/about", element: <About /> },
       { path: "/blog", element: <Blog /> },
-      { path: "/sign-up", element: <Signup /> }, // ✅ Moved here
-      { path: "/login", element: <Login /> },
-      { path: "/logout", element: <Logout /> },
     ],
   },
 
-  // Dashboard Layout with Admin Pages
+  // ✅ Signup & Login (without Navbar & Footer)
+  { path: "/sign-up", element: <Signup /> }, // ❌ Moved OUTSIDE App
+  { path: "/login", element: <Login /> },
+  { path: "/logout", element: <Logout /> },
+
+  // ✅ Dashboard Layout (Private)
   {
     path: "/admin",
-    element: <PrivateRoute><DashboardLayout /></PrivateRoute>, // Dashboard Layout with Sidebar
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       { path: "dashboard", element: <Dashboard /> },
       { path: "upload", element: <UploadBook /> },
@@ -64,9 +65,8 @@ const router = createBrowserRouter([
     ],
   },
 
-  // 404 Not Found Page
+  // ✅ 404 Not Found Page
   { path: "*", element: <NotFound /> },
 ]);
-
 
 export default router;
