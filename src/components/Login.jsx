@@ -120,7 +120,7 @@ const Login = () => {
 
             <p className="text-center text-gray-600 mt-4">
               If you haven't an account, please{" "}
-              <Link to="/signup" className="text-blue-500 hover:underline">sign up here</Link>.
+              <Link to="/sign-up" className="text-blue-500 hover:underline">sign up here</Link>.
             </p>
 
             {error && <p className="text-red-500 text-center mt-2 error-message">{error}</p>}

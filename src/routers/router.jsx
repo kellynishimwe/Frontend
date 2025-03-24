@@ -58,10 +58,11 @@ const router = createBrowserRouter([
       { path: "upload", element: <UploadBook /> },
       { path: "manage", element: <ManageBooks /> },
       { path: "edit-books/:id", element: <EditBooks />, loader: fetchBookData },
+      { path: "/sign-up", element: <Signup /> },
+
     ],
   },
 
-  { path: "/sign-up", element: <Signup /> },
   { path: "/login", element: <Login /> },
   { path: "/logout", element: <Logout /> },
 
